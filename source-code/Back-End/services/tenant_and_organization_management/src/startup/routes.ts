@@ -2,8 +2,8 @@ import express, { Application } from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { errorMiddleware } from "../middlewares/errorMiddleware";
-import { router } from "../router";
 import { handleUndefinedEndpoint } from "../middlewares/handleUndefinedEndpoint";
+import { router } from "../router";
 
 /**
  * Configures the Express application with middleware, API routes, and error handling.
@@ -31,7 +31,7 @@ export const routes = (app: Application) => {
   // Middleware to parse JSON bodies
   app.use(express.json());
 
-  // API routes under the '/api' path
+  // All API routes
   app.use("/api/v1", router);
 
   /**
